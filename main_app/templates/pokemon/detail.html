@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="pokemon-grid">
+    <div id="pokemon-detail">
+        <h3>{{ pokemon.name }}</h3>
+        <img src={{ pokemon.image }}>
+        <h2 id="label" style="color:red;">Type:</h2> <h2>{{ pokemon.poke_type }}</h2>
+        <h2 id="label" style="color:red;">Top Attack:</h2> <h2>{{ pokemon.strongest_attack }}</h2>
+        <h2 id="label" style="color:red;">Date Caught:</h2> <h2>{{ pokemon.date_caught }}</h2>
+        <h2><a id="in-site-links" href="/party">BACK</a></h2>
+    </div>
+</div>
+
+
+{% endblock %}

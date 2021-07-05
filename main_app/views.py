@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import party
+from .models import Pokemon
 
 
 def home(request):
@@ -12,4 +12,10 @@ def about(request):
 
 
 def poke_index(request):
-    return render(request, 'party.html', {'party': party})
+    party = Pokemon.objects.all()
+    return render(request, 'pokemon/index.html', {'party': party})
+
+
+def poke_detail(request, poke_id):
+    pokemon = Pokemon.objects.get(id=poke_id)
+    return render(request, 'pokemon/detail.html', {'pokemon': pokemon})

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <div id="pokemon-grid">
+    {% for pokemon in party %}
+    <div id="each-party-pokemon">
+        <a id="in-site-links" href="{% url 'detail' pokemon.id %}">
+        <h3>{{ pokemon.name }}</h3></a>
+        <h2><img id="each-pokemon-image" src={{ pokemon.image }}></h2>
+    </div>
+    {% endfor %}
+  </div>
+
+{% endblock %}
