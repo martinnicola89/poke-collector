@@ -6,7 +6,8 @@ class Pokemon(models.Model):
     poke_type = models.CharField(max_length=100)  # maps to sql var char
     strongest_attack = models.CharField(max_length=100)
     date_caught = models.CharField(max_length=100)
-    image = models.CharField(max_length=250)
+    image = models.TextField(max_length=1000)
+    team = models.BooleanField()
     # If I print something from the database, it'll display the string below
 
     def __str__(self):

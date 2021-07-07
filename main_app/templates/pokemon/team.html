@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
   <section id="about-title-section">
-    <h1 id="about-title">All Pokemon</h1>
+    <h1 id="about-title">Current Team</h1>
   </section>
   <div id="pokemon-grid">
-    {% for pokemon in party %}
+    {% for pokemon in team %}
     <a id="in-site-links" href="{% url 'detail' pokemon.id %}">
     <div id="each-party-pokemon">
         <h3>{{ pokemon.name }}</h3>

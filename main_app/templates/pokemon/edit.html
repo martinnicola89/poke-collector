@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section id="pokemon-form">
+    <form action="/party/{{ pokemon.id }}/poke_submit_update_form" method="POST">
+        {% csrf_token %}
+        <h4>Name:</h4> <input name="name" value="{{ pokemon.name }}" placeholder="Eg. Pikachu">
+        <h4>Type:</h4> <input name="poke_type" value="{{ pokemon.poke_type }}" placeholder="Eg. Electric">
+        <h4>Strongest Attack:</h4> <input name="strongest_attack" value="{{ pokemon.strongest_attack }}" placeholder="Eg. Thunder Bolt">
+        <h4>Date Caught:</h4> <input name="date_caught" value="{{ pokemon.date_caught }}" placeholder="Eg. 12/2/2018">
+        <h4>Image:</h4> <input name="image" value="{{ pokemon.image }}" placeholder="Eg. http://image.png">
+        <h4>Team:</h4> <input name="team" value="{{ pokemon.team|yesno:'Yes,No' }}">
+        <button id="add-edit-button" type="submit">Update</button>
+    </form>
+</section>
+
+{% endblock %}

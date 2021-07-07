@@ -3,14 +3,15 @@
 
 <div id="pokemon-grid">
     <div id="pokemon-detail">
+        <a href="/party/{{ pokemon.id }}/edit"><button id="edit-link">Edit</button></a> &nbsp;&nbsp; <a href="/party/{{ pokemon.id }}/delete"><button id="delete-link">Delete</button></a>
+        <br><br>
         <h3>{{ pokemon.name }}</h3>
-        <img src={{ pokemon.image }}>
-        <h2 id="label" style="color:red;">Type:</h2> <h2>{{ pokemon.poke_type }}</h2>
-        <h2 id="label" style="color:red;">Top Attack:</h2> <h2>{{ pokemon.strongest_attack }}</h2>
-        <h2 id="label" style="color:red;">Date Caught:</h2> <h2>{{ pokemon.date_caught }}</h2>
-        <h2><a id="in-site-links" href="/party">BACK</a></h2>
+        <img id="pokemon-detail-image" src={{ pokemon.image }}>
+        <h2 id="label" style="color:rgb(6, 118, 170);">Type:</h2> <h2>{{ pokemon.poke_type }}</h2>
+        <h2 id="label" style="color:rgb(6, 118, 170);">Top Attack:</h2> <h2>{{ pokemon.strongest_attack }}</h2>
+        <h2 id="label" style="color:rgb(6, 118, 170);">Date Caught:</h2> <h2>{{ pokemon.date_caught }}</h2>
+        <h2 id="label" style="color:rgb(6, 118, 170);">Team?</h2> <h2>{{ pokemon.team|yesno:'Yes,No' }}</h2>
     </div>
 </div>
-
 
 {% endblock %}
