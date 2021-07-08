@@ -1,15 +1,16 @@
 from django.db import models
+from django.urls import reverse
 
 
-# class Attack(models.Model):
-#     name = models.CharField(max_length=50)
-#     type = models.CharField(max_length=50)
+class Attack(models.Model):
+    name = models.CharField(max_length=50)
+    type = models.CharField(max_length=50)
 
-#     def __str__(self):
-#         return self.name
+    def __str__(self):
+        return self.name
 
-#     def get_absolute_url(self):
-#         return reverse('attacks_detail', kwargs={'pk': self.id})
+    def get_absolute_url(self):
+        return reverse('attacks_detail', kwargs={'pk': self.id})
 
 
 class Item(models.Model):
@@ -23,12 +24,11 @@ class Item(models.Model):
 class Pokemon(models.Model):
     name = models.CharField(max_length=100)  # maps to sql var char
     poke_type = models.CharField(max_length=100)  # maps to sql var char
-    strongest_attack = models.CharField(max_length=100)
     date_caught = models.CharField(max_length=100)
     image = models.TextField(max_length=1000)
     team = models.BooleanField()
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
-    # attacks = models.ManyToManyField(Attack)
+    attacks = models.ManyToManyField(Attack)
 
     # If I print something from the database, it'll display the string below
 

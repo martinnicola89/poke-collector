@@ -14,4 +14,13 @@ urlpatterns = [
     path('team/', views.team, name='team'),
     path('item/', views.item_index),
     path('item/new', views.item_create),
+    path('attacks/', views.AttackList.as_view(), name='attacks_index'),
+    path('attacks/<int:pk>/', views.AttackDetail.as_view(), name='attacks_detail'),
+    path('attacks/create/', views.AttackCreate.as_view(), name='attacks_create'),
+    path('attacks/<int:pk>/update/',
+         views.AttackUpdate.as_view(), name='attacks_update'),
+    path('attacks/<int:pk>/delete/',
+         views.AttackDelete.as_view(), name='attacks_delete'),
+    path('party/<int:poke_id>/assoc_attack/<int:attack_id>/',
+         views.assoc_attack, name='assoc_attack'),
 ]

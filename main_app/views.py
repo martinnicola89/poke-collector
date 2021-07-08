@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from .models import Pokemon, Item
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
+from .models import Pokemon, Item, Attack
 
 
 def home(request):
@@ -18,7 +19,8 @@ def poke_index(request):
 
 def poke_detail(request, poke_id):
     pokemon = Pokemon.objects.get(id=poke_id)
-    return render(request, 'pokemon/detail.html', {'pokemon': pokemon})
+    attacks = Attack.objects.all()
+    return render(request, 'pokemon/detail.html', {'pokemon': pokemon, 'attacks': attacks})
 
 
 def poke_new(request):
@@ -30,7 +32,6 @@ def poke_create(request):
     pokemon = Pokemon.objects.create(
         name=request.POST['name'],
         poke_type=request.POST['poke_type'],
-        strongest_attack=request.POST['strongest_attack'],
         date_caught=request.POST['date_caught'],
         image=request.POST['image'],
         team=request.POST['team'],
@@ -54,7 +55,6 @@ def poke_update(request, poke_id):
     pokemon = Pokemon.objects.get(id=poke_id)
     pokemon.name = request.POST['name']
     pokemon.poke_type = request.POST['poke_type']
-    pokemon.strongest_attack = request.POST['strongest_attack']
     pokemon.date_caught = request.POST['date_caught']
     pokemon.image = request.POST['image']
     pokemon.item = Item.objects.get(name=request.POST['item'])
@@ -79,3 +79,32 @@ def item_create(request):
         boost=request.POST['boost'],
     )
     return redirect('/item')
+
+
+def assoc_attack(request, poke_id, attack_id):
+    # Note that you can pass a toy's id instead of the whole object
+    Pokemon.objects.get(id=poke_id).attacks.add(attack_id)
+    return redirect('detail', poke_id=poke_id)
+
+
+class AttackList(ListView):
+    model = Attack
+
+
+class AttackDetail(DetailView):
+    model = Attack
+
+
+class AttackCreate(CreateView):
+    model = Attack
+    fields = '__all__'
+
+
+class AttackUpdate(UpdateView):
+    model = Attack
+    fields = ['name', 'type']
+
+
+class AttackDelete(DeleteView):
+    model = Attack
+    success_url = '/attacks/'
