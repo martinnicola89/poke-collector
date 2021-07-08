@@ -1,3 +1,10 @@
+* {
+  color: white;
+  font-family: "Bungee", cursive;
+
+  /* font-family: "Cinze1", serif; */
+}
+
 body {
   display: flex;
   min-height: 100vh;
@@ -6,8 +13,6 @@ body {
   /* background: url("https://wallpapermemory.com/uploads/727/pokemon-sun-and-moon-wallpaper-uhd-4k-123264.jpg"); */
   background: url("https://pavbca.com/walldb/original/6/d/c/523270.jpg");
   background-size: cover;
-  color: white;
-  font-family: "Cinze1", serif;
   flex-direction: column;
 }
 
@@ -50,7 +55,7 @@ footer > div {
   /* background-color: rgb(0, 0, 0, 0.8); */
 }
 
-#pokemon-detail > h2 {
+td > h2 {
   font-size: 50px;
   text-align: center;
 }
@@ -86,14 +91,12 @@ h2 > #in-site-links:hover {
 #about-body,
 #home-bio {
   font-size: 30px;
-  background-color: rgb(0, 0, 0, 0.8);
+  background-color: rgb(6, 118, 170, 0.9);
+  /* background-color: rgb(0, 0, 0, 0.8); */
   border-radius: 25px;
   padding: 20px;
   width: 98%;
-}
-
-#about-body {
-  font-weight: bold;
+  margin: 20px;
 }
 
 #each-party-pokemon {
@@ -115,7 +118,7 @@ input {
 
 #edit-link,
 #delete-link {
-  font-size: 50px;
+  font-size: 40px;
   background-color: rgb(6, 118, 170);
   color: white;
   border-radius: 25px;
@@ -147,6 +150,8 @@ input {
   height: 60px;
   border-radius: 50px;
   font-size: 40px;
+  color: black;
+  background-color: white;
 }
 
 #add-edit-button:hover,
@@ -187,6 +192,12 @@ input {
   width: 90%;
 }
 
+#pokemon-detail {
+  background-color: rgb(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 25px;
+}
+
 #ash-ketchum-img {
   width: 28%;
 }
@@ -208,4 +219,9 @@ input {
 
 #pokemon-images {
   width: 98%;
+}
+
+#pokedex-image {
+  width: 90%;
+  margin: 20px;
 }

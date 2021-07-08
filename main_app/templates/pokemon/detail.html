@@ -3,14 +3,21 @@
 
 <div id="pokemon-grid">
     <div id="pokemon-detail">
-        <a href="/party/{{ pokemon.id }}/edit"><button id="edit-link">Edit</button></a> &nbsp;&nbsp; <a href="/party/{{ pokemon.id }}/delete"><button id="delete-link">Delete</button></a>
-        <br><br>
-        <h3>{{ pokemon.name }}</h3>
-        <img id="pokemon-detail-image" src={{ pokemon.image }}>
-        <h2 id="label" style="color:rgb(6, 118, 170);">Type:</h2> <h2>{{ pokemon.poke_type }}</h2>
-        <h2 id="label" style="color:rgb(6, 118, 170);">Top Attack:</h2> <h2>{{ pokemon.strongest_attack }}</h2>
-        <h2 id="label" style="color:rgb(6, 118, 170);">Date Caught:</h2> <h2>{{ pokemon.date_caught }}</h2>
-        <h2 id="label" style="color:rgb(6, 118, 170);">Team?</h2> <h2>{{ pokemon.team|yesno:'Yes,No' }}</h2>
+        <table>
+            <td>
+                <a href="/party/{{ pokemon.id }}/edit"><button id="edit-link">Edit</button></a> &nbsp;&nbsp; <a href="/party/{{ pokemon.id }}/delete"><button id="delete-link">Release</button></a>
+                <br><br>
+                <h3>{{ pokemon.name }}</h3>
+                <img id="pokemon-detail-image" src={{ pokemon.image }}>
+            </td>
+            <td>
+                <h2 id="label" style="color:rgb(6, 118, 170);">Type:</h2> <h2>{{ pokemon.poke_type }}</h2>
+                <h2 id="label" style="color:rgb(6, 118, 170);">Attack:</h2> <h2>{{ pokemon.strongest_attack }}</h2>
+                <h2 id="label" style="color:rgb(6, 118, 170);">Caught:</h2> <h2>{{ pokemon.date_caught }}</h2>
+                <h2 id="label" style="color:rgb(6, 118, 170);">Item:</h2> <h2>{{ pokemon.item.name }}</h2>
+                <h2 id="label" style="color:rgb(6, 118, 170);">Team?</h2> <h2>{{ pokemon.team|yesno:'Yes,No' }}</h2>
+            </td>
+        </table>
     </div>
 </div>
 

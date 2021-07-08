@@ -12,4 +12,6 @@ urlpatterns = [
     path('party/<int:poke_id>/edit', views.poke_edit),
     path('party/<int:poke_id>/poke_submit_update_form', views.poke_update),
     path('team/', views.team, name='team'),
+    path('item/', views.item_index),
+    path('item/new', views.item_create),
 ]

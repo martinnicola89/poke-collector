@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section id="about-title-section">
+    <h1 id="about-title">Add an Item</h1>
+</section>
+<form action="/item/new" method="POST">
+    {% csrf_token %}
+    <h4>Name:</h4> <input name="name">
+    <h4>Boost:</h4> <input type="number" name="boost">
+    <button id="add-edit-button" type="submit">Add</button>
+</form>
+
+<section id="about-title-section">
+    <h1 id="about-title">All Items</h1>
+</section>
+
+<style>
+table {
+  font-size: 30px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(6, 118, 170, 0.9);
+}
+</style>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Boost</th>
+        </tr>
+{% for item in items %}
+        <tr>
+            <th>{{ item.name }}</th>
+            <th>{{ item.boost }}</th>
+        </tr>
+{% endfor %}
+    </table>
+
+
+{% endblock %}

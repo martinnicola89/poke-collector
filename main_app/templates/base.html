@@ -10,10 +10,14 @@
       {% endblock %}
   </title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet"> -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Josefin+Slab:wght@100;500&family=Qahiri&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="navbar-fixed">
@@ -29,6 +33,7 @@
           <li><a id="main-links" href="/team">Current Team</a></li>
           <li><a id="main-links" href="/party/new">Add Pokemon</a></li>
           <li><a id="main-links" href="/party">Pokemon Box</a></li>
+          <li><a id="main-links" href="/item">Items</a></li>
         </ul>
       </div>
     </nav>
@@ -40,5 +45,11 @@
   <footer class="page-footer">
     <div class="right">All Rights Reserved, &copy; 2021 Sexy Boy Productions &nbsp;</div>
   </footer>
+  <script>
+      var selectEl1 = document.getElementById('item');
+      var selectEl2 = document.getElementById('team');
+      M.FormSelect.init(selectEl1);
+      M.FormSelect.init(selectEl2);
+  </script>
 </body>
 </html>

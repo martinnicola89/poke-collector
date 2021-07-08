@@ -12,7 +12,19 @@
         <h4>Strongest Attack:</h4> <input name="strongest_attack">
         <h4>Date Caught:</h4> <input name="date_caught">
         <h4>Image:</h4> <input name="image">
-        <h4>Team:</h4> <input name="team">
+        <h4>Item:</h4> 
+        <select id="item" name="item">
+            <option>Select One</option>
+            {% for item in items %}
+                <option value="{{ item.name }}">{{ item.name }}</option>
+            {% endfor %}
+        </select>
+        <h4>Team:</h4> 
+        <select id="team" name="team">
+            <option>Select One</option>
+            <option value="True">Yes</option>
+            <option value="False">No</option>
+        </select>
         <button id="add-edit-button" type="submit">Add</button>
     </form>
 </section>
