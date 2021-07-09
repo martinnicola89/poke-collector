@@ -30,12 +30,19 @@
         </ul>
         <ul class="right">
           <li><a id="main-links" href="/about">About</a></li>
-          <li><a id="main-links" href="/team">Current Team</a></li>
-          <li><a id="main-links" href="/party/new">Add Pokemon</a></li>
-          <li><a id="main-links" href="/party">Pokemon Box</a></li>
-          <li><a id="main-links" href="/item">Items</a></li>
-          <li><a id="main-links" href="{% url 'attacks_create' %}">Add an Attack</a></li>
-          <li><a id="main-links" href="{% url 'attacks_index' %}">View All Attacks</a></li>
+          {% if user.is_authenticated %}
+            <li><a id="main-links" href="/team">Current Team</a></li>
+            <li><a id="main-links" href="/party/new">Add Pokemon</a></li>
+            <li><a id="main-links" href="/party">Pokemon Box</a></li>
+            <li><a id="main-links" href="/item">Items</a></li>
+            <li><a id="main-links" href="{% url 'attacks_create' %}">Add an Attack</a></li>
+            <li><a id="main-links" href="{% url 'attacks_index' %}">View All Attacks</a></li>
+            <li><a id="main-links" href="{% url 'logout' %}">Log Out</a></li>
+          {% else %}
+            <!-- New link below -->
+            <li><a id="main-links" href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a id="main-links" href="{% url 'login' %}">Log In</a></li>
+          {% endif %}
         </ul>
       </div>
     </nav>

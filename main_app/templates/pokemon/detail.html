@@ -13,7 +13,7 @@
             <td>
                 <h2 id="label" style="color:rgb(6, 118, 170);">Type:</h2> <h2>{{ pokemon.poke_type }}</h2>
                 <h2 id="label" style="color:rgb(6, 118, 170);">Caught:</h2> <h2>{{ pokemon.date_caught }}</h2>
-                <h2 id="label" style="color:rgb(6, 118, 170);">Item:</h2> <h2>{{ pokemon.item.name }}</h2>
+                <h2 id="label" style="color:rgb(6, 118, 170);">Item:</h2> {% if pokemon.item %}<h2>{{ pokemon.item.name }}</h2>{% endif %}
                 <h2 id="label" style="color:rgb(6, 118, 170);">Team?</h2> <h2>{{ pokemon.team|yesno:'Yes,No' }}</h2>
             </td>
         </table>

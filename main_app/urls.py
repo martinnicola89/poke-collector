@@ -23,4 +23,6 @@ urlpatterns = [
          views.AttackDelete.as_view(), name='attacks_delete'),
     path('party/<int:poke_id>/assoc_attack/<int:attack_id>/',
          views.assoc_attack, name='assoc_attack'),
+    # New url pattern below
+    path('accounts/signup/', views.signup, name='signup'),
 ]

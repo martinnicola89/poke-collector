@@ -1,10 +1,13 @@
 from django.db import models
 from django.urls import reverse
+# Import the User
+from django.contrib.auth.models import User
 
 
 class Attack(models.Model):
     name = models.CharField(max_length=50)
     type = models.CharField(max_length=50)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -16,6 +19,7 @@ class Attack(models.Model):
 class Item(models.Model):
     name = models.CharField(max_length=100, default='X-Attack')
     boost = models.IntegerField(default=2)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     # def __str__(self):
     #     return f"{self.name} (+{self.boost})"
@@ -29,6 +33,7 @@ class Pokemon(models.Model):
     team = models.BooleanField()
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     attacks = models.ManyToManyField(Attack)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     # If I print something from the database, it'll display the string below
 
