@@ -3,6 +3,8 @@ from django.urls import reverse
 # Import the User
 from django.contrib.auth.models import User
 
+class Digimon(models.Model):
+    name = models.CharField(max_length=50)
 
 class Attack(models.Model):
     name = models.CharField(max_length=50)
